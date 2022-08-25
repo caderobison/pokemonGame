@@ -1,0 +1,181 @@
+For pokeMap.c
+January 27th: Started working on the pokeMap.c
+January 27th: Created all terrain types and stucture map_t
+January 27th: Added trivial functions clearMap() and addBorders()
+January 27th: Implemented genCoords()
+January 27th: Implemented half of print()
+
+January 28th: Implemented addEntrance()
+January 28th: Implemented addShops()
+January 28th: Implemented some of growRegions(). Still no where near finished
+
+January 30th: Mostly finished growRegions(). Still some bugs
+January 30th: Deleted function genCoords() (not needed)
+January 30th: Created Makefile
+
+January 31st: Finally finished growRegions()
+January 31st: Added entrances array to map_t structure. Use this array in addPaths() and addEntrances()
+January 31st: Implemented addPaths() with helper methods absoluteValue(), sign() and convertPath()
+January 31st: Added color to print()
+
+February 1st: Implemented addDecor()
+February 1st: Commented on code more
+February 1st: Added README.txt
+February 1st: Made so boulder and tree biomes grow slower than other terrains
+
+February 3rd: Reconfigured a lot of pokeMap.c
+February 3rd: Made pokeMap.h to house structure, type and function definitions
+February 3rd: Made map_init and map_init_rand in pokeMap.c (mostly use map_init)
+
+For pokeWorld
+
+February 3rd: Started working on pokeWorld.c
+February 3rd: Added structure type world_t
+February 3rd: Added clearWorld and started on move
+
+February 4th: Finished move, started on build_room
+
+February 5th: Worked almost exclusively on build_room, added add_one_rand_entrance and add_one_entrance to pokeMap in the process
+
+February 6th: Changed addEntrance to use add_one_rand_entrance in pokeMap
+February 6th: Finished up build_room, still a lot of bugs
+February 6th: Added add_set_entrances to clean up buildRoom
+February 6th: Added a much needed world_delete function
+
+February 7th: Changed move so it calls build_room
+February 7th: Made build_room call map_init
+
+February 8th: Fixed bug that caused memory problems when on border maps
+February 8th: Deleted add_one_rand_entrance and edited add_one_entrance. All add_one_rand_entrance calls are replaced by add_one_entrance with a random coordinate
+February 8th: Deleted all srand(time(NULL)) except first in pokeWorld
+
+February 9th: Added more comments to pokeMap and pokeWorld + README
+February 9th: Cleaned up the build_room function and the add_set_entrances function
+
+For path_finding
+
+Feb 10th: Started on path_finding.h including a cost_key.
+Feb 10th: Created map_cell_t. Each cell in a room now points to a map_cell instead of just a terrain
+Feb 10th: Added dist[] to map_cell_t
+
+Feb 11th: Created place_pc method and updated print in pokeMap to print the player
+Feb 11th: Created print_paths_dist function
+Feb 11th: Started on calculate_all_paths
+
+Feb 13th: Only worked on calculate_all_paths. No progress.
+
+Feb 14th: Worked on calculate_all_paths. Little progress. 
+
+Feb 15th: Worked on calculate_all_paths. Little progress.
+
+Feb 16th: Worked on calculate_all_paths. Little progress. 
+
+Feb 18th: FINALLY finished calculate_all_paths!
+Feb 18th: Minor bug fixes for calculate_all_paths.
+Feb 18th: Added distance coloring to print_paths_dist.
+
+Feb 19th: Reconfigured pokeWorld.c.
+Feb 19th: Added pokeWorld map-hopping functionality to path_finding.
+Feb 19th: cleaned up path_finding.h and .c
+Feb 19th: Added Makefile
+
+Feb 23rd: Made it so any impassable terrain will not even be added to the heap
+Feb 23rd: Added README
+
+For character_behaviour.c
+
+Feb 26th: Created character_behaviour.c, character_behaviour.h, characters.h
+Feb 26th: Updated map_cell_t to include a character pointer
+Feb 26th: Made the start of the main function that takes the number of characters on the screen
+Feb 26th: Made place_char()
+
+Feb 27th: Made move_char()
+Feb 27th: Made init_char()
+
+Mar 1st: main() now places all chars randomly
+Mar 1st: move_char() bug fixes
+
+Mar 3rd: main() is almost complete, just a few bugs with stationaries
+Mar 3rd: fixed bugs where characters were stepping on eachother
+Mar 3rd: made teleport_player so each time an enemy is next to the player, it teleports
+
+Mar 7th: made place_all_chars to clean up main()
+
+Mar 8th: made README
+
+For user_interface.c
+
+Mar 10th: created user_interface.c and user_interface.h
+Mar 10th: Spent a good while trying to figure out how to download and use ncurses
+
+Mar 13th: Set up the bare skeleton for taking inputs through ncurses and getch()
+
+Mar 15th: Added to the direction_t struct
+Mar 15th: Created a buggy move_player() function that can't move between rooms
+
+Mar 17th: Started on the move_and_print_chars() function
+Mar 17th: Made pokeMap.c compatible with ncurses (changed printf to printw).
+Mar 17th: added print_map_cell() to pokeMap.c
+
+Mar 20th: made move_player able to change rooms
+Mar 20th: Fixed a killer bug in move_and_print_chars() that added the player twice
+
+Mar 21st: added num_chars, all_chars and char_heap to each room to keep track of the npc in each room
+
+Mar 22nd: Added the control layout screen
+Mar 22nd: Fixed some memory problems with character_behaviour.c
+
+Mar 23rd: added show_trainers(), fight_npc(), enter_building() to user_interface.c
+Mar 23rd: add defeated tag to character struct
+Mar 23rd: Fixed some memory leak issues
+Mar 23rd: commented and added README
+
+For parsing.cpp
+
+Mar 28: started working on porting everything to C++
+
+Mar 29: finished porting everything to C++
+
+Mar 30th: started on parsing
+Mar 30th: created all classes for each type
+
+Mar 31st: wrote the code that takes the files and parses them into the classes
+
+No new file for 1.07
+
+April 4th: made code to parse pokemon_stats.csv
+
+April 5th: Created specific_poke clas
+April 5th: Implemented encounter pokemon
+
+April 6th: Added stats to specific_poke
+April 6th: Added leveling up to specific_poke
+
+
+No new file for 1.08
+
+April 7th: Started refactoring 1.07
+            Added the starting sequence with the script
+
+April 10th: Created health bar mechanics
+
+April 11th: added pokemon to character class
+            expanded specific_poke, now inherits pokemon class
+
+April 12th: General UI for battling trainers done, very buggy
+
+April 13th: implemented potions and revives
+            Implemented trainer AI
+
+April 14th: Fixed up UI to document moves
+
+April 17th: Memory leak stuff
+
+April 19th: Implemented damage mechanics
+            streamlines UI
+            Parsed pokemon_types
+
+April 21st: Implemented pc_action
+            Implemented fighting wild pokemon and catching them
+            General bugs
+            memory leaks
